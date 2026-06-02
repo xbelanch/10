@@ -205,12 +205,48 @@ $(function() {
         return 'iframe';
     }
 
+    function mediaVariantClass(url, type) {
+        if (type === 'issuu') {
+            return 'media-placeholder--document';
+        }
+        if (/soundcloud\.com/.test(url)) {
+            return 'media-placeholder--compact';
+        }
+        if (type === 'image') {
+            return 'media-placeholder--document';
+        }
+        return 'media-placeholder--video';
+    }
+
+    function localPreviewPath(fileName) {
+        var path = window.location.pathname;
+        var prefix = /^\/\d+\//.test(path) || /^\/img\//.test(path) ? '../' : '';
+        return prefix + 'img/' + fileName;
+    }
+
+    function defaultMediaPreview(url, type) {
+        if (type === 'image') {
+            return localPreviewPath('default-cover.opt.webp');
+        }
+        if (/soundcloud\.com/.test(url)) {
+            return localPreviewPath('background2.opt.webp');
+        }
+        if (/slides\.com/.test(url)) {
+            return localPreviewPath('a-great-story-cover.opt.webp');
+        }
+        if (/youtube\.com|youtu\.be|vimeo\.com|ccma\.cat|tv3\.cat/.test(url)) {
+            return localPreviewPath('features-cover.opt.webp');
+        }
+        return localPreviewPath('storytime-cover.opt.webp');
+    }
+
     function upgradeMediaPlaceholder($placeholder) {
         var $link = $placeholder.find('a[href]').first();
         var src = $placeholder.data('src') || ($link.length ? $link.attr('href') : '');
         var type = $placeholder.data('media-type') || (src ? mediaTypeFromUrl(src) : '');
         var title = $placeholder.data('media-title') || mediaProviderName(src, type);
         var fallback = src;
+        var preview = $placeholder.data('preview') || defaultMediaPreview(src, type);
 
         if (!type && !$placeholder.data('configid')) {
             return;
@@ -218,6 +254,7 @@ $(function() {
 
         $placeholder
             .addClass('media-placeholder')
+            .addClass(mediaVariantClass(src, type))
             .attr('data-media-type', type);
 
         if (src) {
@@ -229,7 +266,12 @@ $(function() {
             actions += '<a class="media-placeholder__link" href="' + fallback + '" target="_blank" rel="noopener noreferrer">Obre en pestanya nova</a>';
         }
 
+        var previewMarkup = preview ?
+            '<div class="media-placeholder__bg" style="background-image:url(' + preview + ')"></div><div class="media-placeholder__overlay"></div>' :
+            '<div class="media-placeholder__overlay"></div>';
+
         $placeholder.html(
+            previewMarkup +
             '<div class="media-placeholder__body">' +
                 '<h3 class="media-placeholder__title">' + title + '</h3>' +
                 '<p class="media-placeholder__text">Aquest contingut extern es carregarà només quan el demanis.</p>' +

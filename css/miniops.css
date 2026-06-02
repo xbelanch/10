@@ -153,24 +153,76 @@ h3 {
 .media-placeholder,
 .external-embed-placeholder {
   align-items: center;
-  background: #f8fafc;
+  background: #2d3e50;
   border: 1px solid #d7e0ea;
-  color: #314255;
+  color: #fff;
   display: flex;
   justify-content: center;
   margin: 0 auto 20px;
   min-height: 120px;
   overflow: hidden;
   padding: 18px;
+  position: relative;
   text-align: center;
+}
+
+.embed-responsive > .media-placeholder,
+.embed-responsive > .external-embed-placeholder {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.media-placeholder--compact {
+  aspect-ratio: auto !important;
+  height: 200px;
+  max-width: 720px;
+  min-height: 180px;
+}
+
+.media-placeholder--video {
+  min-height: 260px;
+}
+
+.media-placeholder--document {
+  min-height: 260px;
+}
+
+.media-placeholder__bg,
+.media-placeholder__overlay {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.media-placeholder__bg {
+  background-position: center;
+  background-size: cover;
+  filter: blur(2px);
+  transform: scale(1.03);
+}
+
+.media-placeholder__overlay {
+  background: rgba(21, 31, 43, .62);
+}
+
+.media-placeholder--document .media-placeholder__overlay {
+  background: rgba(64, 50, 39, .58);
 }
 
 .media-placeholder__body {
   max-width: 520px;
+  position: relative;
+  z-index: 1;
 }
 
 .media-placeholder__title {
-  color: #2d3e50;
+  color: #fff;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -178,6 +230,7 @@ h3 {
 }
 
 .media-placeholder__text {
+  color: #f3f6f8;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.4;
@@ -200,11 +253,12 @@ h3 {
 
 .media-placeholder__link,
 .external-embed-placeholder a.media-placeholder__link {
-  color: #428bca;
+  color: #fff;
   display: inline-block;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   margin-bottom: 8px;
+  text-decoration: underline;
 }
 
 .media-placeholder__frame,
@@ -223,7 +277,13 @@ h3 {
 .external-embed-placeholder.is-loaded {
   background: transparent;
   border: 0;
+  height: auto;
   padding: 0;
+}
+
+.embed-responsive > .media-placeholder.is-loaded,
+.embed-responsive > .external-embed-placeholder.is-loaded {
+  height: 100%;
 }
 
 p small {

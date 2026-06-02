@@ -111,12 +111,7 @@ ol li {
   font-size: 18px;
 }
 
-/* line 77, ../sass/_type.sass */
-[class*="entypo-"]:before {
-  font-family: "entypo", sans-serif;
-}
-
-/* line 1, ../sass/_animate.scss */
+/* line 77, ../sass/_type.sass *//* line 1, ../sass/_animate.scss */
 .animated {
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
@@ -1046,13 +1041,6 @@ ol li {
 /* line 76, ../sass/partials/_shared.sass */
 .btn-like:active {
   background-color: #d62929;
-}
-
-/* line 79, ../sass/partials/_shared.sass */
-.entypo-heart,
-.entypo-doc-text {
-  font-style: normal;
-  margin-right: 10px;
 }
 
 /* line 1, ../sass/partials/_menu.sass */

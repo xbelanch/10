@@ -25,12 +25,6 @@ const targets = [
   { page: '9', name: 'vimeo-119711902', type: 'iframe', width: 900, height: 661, url: 'https://player.vimeo.com/video/119711902', thumbnailUrl: 'https://i.vimeocdn.com/video/507299070-c89a9b549f3da59f179faf2e7e77c4c67e5a07104f1fbffb6d703453de49d282-d_1280x720' },
   { page: '9', name: 'vimeo-119711903', type: 'iframe', width: 900, height: 661, url: 'https://player.vimeo.com/video/119711903', thumbnailUrl: 'https://i.vimeocdn.com/video/507299670-036c5f13b5ce1cff2a79da166f7d4809f6b36e177118c8fb361a9a739334958b-d_1280x720' },
   { page: '10', name: 'soundcloud-preadolescents', type: 'iframe', width: 900, height: 200, url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/190074125&color=0066cc&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false' },
-  { page: '10', name: 'image-shaun-tan', type: 'image', width: 450, height: 599, url: 'https://images-na.ssl-images-amazon.com/images/I/51f56LTnKfL._SX373_BO1,204,203,200_.jpg' },
-  { page: '10', name: 'image-juventud-3544', type: 'image', width: 500, height: 508, url: 'https://www.editorialjuventud.es/wp-content/uploads/3544.jpg' },
-  { page: '10', name: 'image-mort-nil', type: 'image', width: 500, height: 640, url: 'https://www.bratac.cat/wp-content/uploads/2016/11/Mort-en-el-nil-1.jpg' },
-  { page: '10', name: 'image-pell-freda', type: 'image', width: 500, height: 802, url: 'https://imagessl8.casadellibro.com/a/l/t7/58/9788495616258.jpg' },
-  { page: '10', name: 'image-societat-literaria', type: 'image', width: 500, height: 755, url: 'https://images-na.ssl-images-amazon.com/images/I/71V6H41U1uL.jpg' },
-  { page: '10', name: 'image-calders-contes', type: 'image', width: 500, height: 762, url: 'https://www.granollers.cat/sites/default/files/importades_d6//17_club_lectura_tots_els_contes.jpg' },
   { page: '12', name: 'youtube-CKhJ8y45T3k', type: 'iframe', width: 900, height: 506, url: 'https://www.youtube.com/embed/CKhJ8y45T3k?cc_load_policy=1&hl=es&cc_lang_pref=es', thumbnailUrl: 'https://img.youtube.com/vi/CKhJ8y45T3k/hqdefault.jpg' },
 ];
 

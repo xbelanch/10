@@ -1,0 +1,14 @@
+.DS_Store
+*.tmp
+*~
+
+# Design/source files that should not be added accidentally.
+*.pxm
+*.psd
+*.ai
+
+# Local backups and generated reports.
+*_backup_*/
+backup/
+backups/
+

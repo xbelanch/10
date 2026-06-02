@@ -1,0 +1,25 @@
+.git/
+.gitignore
+.deployignore
+.DS_Store
+**/.DS_Store
+
+# Source/design/development artifacts.
+*.pxm
+*.psd
+*.ai
+*.map
+*~
+*.tmp
+
+# Local backups should never be published.
+*_backup_*/
+backup/
+backups/
+
+# Large media/source originals kept in the repository for review only.
+# Review manually before enabling broad image exclusions in a real deploy.
+# *.png
+# *.jpg
+# *.jpeg
+

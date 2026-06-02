@@ -1,6 +1,9 @@
 .git/
 .gitignore
 .deployignore
+dist/
+media/
+index-2201205.html
 .DS_Store
 **/.DS_Store
 
@@ -22,4 +25,3 @@ backups/
 # *.png
 # *.jpg
 # *.jpeg
-

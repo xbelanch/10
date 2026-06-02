@@ -179,7 +179,7 @@ $(document).ready(function() {
     var url = document.location.pathname;
     var regnum = /\/(\d+)\/i/;
     var num = url.match(regnum)[1];
-    var headerImg = 'background-header.png';
+    var headerImg = 'background-header.opt.webp';
 
     if (num) {
         var nextpage = url.replace("/" + num + "/i", "/" + ++num + "/i");

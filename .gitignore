@@ -12,3 +12,4 @@
 backup/
 backups/
 dist/
+tmp/

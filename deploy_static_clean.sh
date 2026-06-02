@@ -21,8 +21,15 @@ rsync -a "$ROOT_DIR"/ "$DIST_DIR"/ \
   --exclude='assets/css/plugins/font-awesome/scss/' \
   --exclude='assets/js/bootstrap/' \
   --exclude='assets/js/plugins/' \
+  --exclude='/assets/js/' \
+  --exclude='/assets/img/' \
   --exclude='assets/img/demo-portraits/' \
   --exclude='assets/mp4/' \
+  --exclude='css/bootstrap.css' \
+  --exclude='js/vendor/bootstrap.js' \
+  --exclude='js/vendor/jquery.flot.min.js' \
+  --exclude='js/vendor/jquery.flot.resize.min.js' \
+  --exclude='js/vendor/jquery.easypiechart.min.js' \
   --exclude='**/assets/css/styles.css' \
   --exclude='.DS_Store' \
   --exclude='**/.DS_Store' \
@@ -45,6 +52,16 @@ while IFS= read -r -d '' file; do
   opt="${base}.opt.webp"
   name="$(basename "$file")"
   if [[ -f "$opt" ]] && ! rg -q --fixed-strings "$name" "$DIST_DIR" --glob '*.html' --glob '*.css' --glob '*.js'; then
+    rm -f "$file"
+  fi
+done
+
+# Drop any remaining original raster file that is not referenced by the public
+# HTML/CSS/JS graph. Optimized WebP files and referenced originals are kept.
+find "$DIST_DIR" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) -print0 |
+while IFS= read -r -d '' file; do
+  name="$(basename "$file")"
+  if ! rg -q --fixed-strings "$name" "$DIST_DIR" --glob '*.html' --glob '*.css' --glob '*.js'; then
     rm -f "$file"
   fi
 done

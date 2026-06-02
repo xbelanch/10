@@ -10,6 +10,7 @@ mkdir -p "$DIST_DIR"
 rsync -a "$ROOT_DIR"/ "$DIST_DIR"/ \
   --exclude='.git/' \
   --exclude='dist/' \
+  --exclude='tools/' \
   --exclude='media/' \
   --exclude='assets/css/spectrum-yellow.css' \
   --exclude='assets/css/bootstrap/' \

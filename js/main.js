@@ -341,24 +341,24 @@ $(function() {
 
 $(document).ready(function() {
     var url = document.location.pathname;
-    var match = url.match(/\/(\d+)\//);
-    if (!match) {
+    var parts = url.split('/').filter(Boolean);
+    var stepPart = parts.at(-2);
+    if (!stepPart || !/^\d+$/.test(stepPart)) {
         return;
     }
-    var num = match[1];
+    var num = Number(stepPart);
     var headerImg = 'background-header.opt.webp';
 
     if (num) {
-        var nextpage = url.replace("/" + num + "/i", "/" + ++num + "/i");
-        $.ajax({
-            url: nextpage,
-            success: function(result){
-                var $footer = $("div.single-footer");
-                $footer.addClass('fons-pas-' + num).addClass('hero-image');
-                $footer.on("click", function(){
-                    document.location = document.location.protocol + nextpage;
-                });
-            }
-        });
+        var baseParts = parts.slice(0, -2);
+        var courseBase = baseParts.length > 0 ? '/' + baseParts.join('/') + '/' : '/';
+        var nextpage = courseBase + (num + 1) + '/index.html';
+        var $footer = $("div.single-footer");
+        if ($footer.length) {
+            $footer.addClass('fons-pas-' + (num + 1)).addClass('hero-image');
+            $footer.on("click", function(){
+                document.location = document.location.protocol + nextpage;
+            });
+        }
     }
 });

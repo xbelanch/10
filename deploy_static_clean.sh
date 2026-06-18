@@ -43,7 +43,8 @@ rsync -a "$ROOT_DIR"/ "$DIST_DIR"/ \
   --exclude='*_backup_*/' \
   --exclude='backup/' \
   --exclude='backups/' \
-  --exclude='index-2201205.html'
+  --exclude='index-2201205.html' \
+  --exclude='deploy_static_clean.sh'
 
 # Drop original raster files only when an optimized sibling exists and no copied
 # HTML/CSS/JS file still references the original file name.
